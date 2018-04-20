@@ -41,4 +41,4 @@ class Controller {
   }
 }
 
-Controller.female_students();
+module.exports = Controller;

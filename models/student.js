@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.STRING
   });
 
-  
+    
 
   Student.associate = function(models) {
     // associations can be defined here

@@ -32,10 +32,19 @@ class Controller{
       }
     });
   }
-
+ 
+  static createStudent(first_name,last_name,gender,birthday,email,phone,height){
+    Student.create({ first_name:`${first_name}`,last_name:`${last_name}`,gender:`${gender}`,birthday:`${birthday}`,email:`${email}`,phone:`${phone}`,height:`${height}`})
+    .then(function(data){
+    console.log(data.first_name);
+    }).catch(function(error){
+      throw error;
+    });
+  }
 }
 
 
-Controller.getFemale();
-Controller.getStudentsAge();
-Controller.getFullName();
+// Controller.getFemale();
+// Controller.getStudentsAge();
+// Controller.getFullName();
+Controller.createStudent('Iwan','Joni','male','1997-08-20','nora@treutel.name','4642343654',125)

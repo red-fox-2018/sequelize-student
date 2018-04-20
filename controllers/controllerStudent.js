@@ -48,7 +48,7 @@ class ControllerStudent{
         .catch(msgErro => {
             console.log(msgErro)
         })
-            // }
+        
     }
 }
 
@@ -60,7 +60,7 @@ let objStudent = {
     last_name: 'maulana',
     gender: 'male',
     birthday: '1986-11-2',
-    email: 'yasir.maulana@gmail.com',
+    email: 'yasir.maulana2@gmail.com',
     phone: '081586245143',
     hight: 160
 }

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             Student.findOne({where: {email: value}})
             .then(function (student) {
               if (student) {
-                return next('Email already in use!');
+                return next('Email sudah ada yang punya!');
               }else{
                 return next();
               }
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: `invalid phone number`
         }
       }
-    }
+    },
     heigh:{
       type: DataTypes.INTEGER,
       validate:{

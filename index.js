@@ -15,7 +15,6 @@ switch(command) {
     let gender = values[4];
     let height = values[5];
     let birthday = values[6];
-
     Student.create({ firstName, lastName, email, phone, gender, height, birthday })
       .then(student => {
         console.log(`Data baru berhasil dimasukan!`);

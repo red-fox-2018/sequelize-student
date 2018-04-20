@@ -4,26 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: {
-      type: DataTypes.STRING,
-      validate: {
-        isEmail: true,
-        isUnique: function (email, cb) {
-        Student.find({where:{email: email}})
-          .then(function (u) {
-            if (u) {
-              throw new Error('Email address already in use!');
-              cb(true);
-            }
-          });
-      }
-      }
+      type: DataTypes.STRING
     },
-    phone: {
-      type: DataTypes.INTEGER,
-      validate: {
-
-      }
-    },
+    phone: DataTypes.INTEGER,
     gender: DataTypes.STRING,
     height: {
       type: DataTypes.INTEGER,
@@ -53,3 +36,18 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Student;
 };
+
+/*
+validate: {
+  isEmail: true,
+  isUnique: function (email, cb) {
+    Student.find({where:{email: email}})
+    .then(function (u) {
+      if (u) {
+        throw new Error('Email address already in use!');
+        cb(true);
+      }
+    });
+  }
+}
+*/

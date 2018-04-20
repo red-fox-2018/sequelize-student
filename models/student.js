@@ -7,11 +7,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isEmail: true,
+        unique: true
       }
     },
     phone: DataTypes.STRING,
     gender: DataTypes.STRING,
-    height: DataTypes.INTEGER,
+    height: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 151
+      }
+    },
     birthday: DataTypes.STRING,
   }, {
     timestamps: false

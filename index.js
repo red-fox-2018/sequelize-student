@@ -18,17 +18,10 @@ switch(command) {
 
     Student.create({ firstName, lastName, email, phone, gender, height, birthday })
       .then(student => {
-        if (student) {
-          console.log(`Data baru berhasil dimasukan!`);
-          process.exit(0);
-        } else {
-          console.log(`Gagal memasukan data!`);
-          process.exit(0);
-        }
+        console.log(`Data baru berhasil dimasukan!`);
       }).catch(err => {
-        throw new Error('Error validation');
+        throw err;
       });
-    
     break;
   }
   default:

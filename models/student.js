@@ -7,10 +7,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         isEmail: true,
-        unique: true
+        isUnique: function (email, cb) {
+        Student.find({where:{email: email}})
+          .then(function (u) {
+            if (u) {
+              throw new Error('Email address already in use!');
+              cb(true);
+            }
+          });
+      }
       }
     },
-    phone: DataTypes.STRING,
+    phone: {
+      type: DataTypes.INTEGER,
+      validate: {
+
+      }
+    },
     gender: DataTypes.STRING,
     height: {
       type: DataTypes.INTEGER,

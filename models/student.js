@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Email is not valid'
         },
         isUnique(value, next) {
-          sequelize.models.findOne({
+          sequelize.models.Student.findOne({
               where: {
                 email: value
               }
             })
-            .then(email => {
-              if (email) {
+            .then(emailInput => {
+              if (emailInput) {
                 next('Email is already exist');
               }
             })
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       validate: {
         min: {
-          args = 150,
+          args: 150,
           msg: 'Minimum height is 150'
         }
       }

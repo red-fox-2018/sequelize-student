@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.STRING,
     birthday: DataTypes.DATEONLY,
     email: DataTypes.STRING,
-    phone: DataTypes.STRING
+    phone: DataTypes.STRING,
+    Height: DataTypes.INTEGER
   }, {});
   //classmodel
   Student.associate = function(models) {
@@ -33,8 +34,10 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Student.prototype.getAge = function() {
+    //console.log(this.birthday);
     let date = new Date();
     let birthDate = new Date(this.birthday);
+    //console.log(this.birthday);
     let age = (date.getFullYear() - birthDate.getFullYear());
     let data = `${this.first_name} ${this.last_name} age ${age}`
     return data;

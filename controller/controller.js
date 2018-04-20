@@ -11,10 +11,10 @@ class Controller {
       View.help()
   }
 
-  static FullName(){
+  static FullName(data){
     //console.log(number);
     db.Student.findOne({
-      where: {id: 1}
+      where: {id: data}
     })
     .then(student => {
       View.show(student.getFullName())
@@ -22,13 +22,18 @@ class Controller {
     })
   }
 
-  static getAge(){
+  static getAge(data){
+  //  console.log('======',data);
     db.Student.findOne({
-      where: {id: 2}
+      where: {id: data}
     })
     .then(student => {
-      View.show(`${student.getAge()}`);
+    //  console.log(student);
+      View.show(student.getAge());
       process.exit()
+    })
+    .catch(function(err){
+      console.log(err);
     })
   }
 
@@ -42,10 +47,22 @@ class Controller {
         View.show(`fullname  : ${student.getFullName()}`)
         View.show(`===================================`)
       })
-
       process.exit()
     })
+  }
 
+  static add(obj){
+    console.log(obj.first_name);
+    let student = db.Student.create({
+      first_name: obj.first_name,
+      last_name: obj.last_name,
+      gender: obj.gender,
+      birthday: obj.birthday,
+      email: obj.email,
+      phone: obj.phone,
+      height: obj.height
+    })
+    process.exit()
   }
 
 

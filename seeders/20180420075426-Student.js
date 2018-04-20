@@ -9,6 +9,7 @@ module.exports = {
       birthday: '1998-12-24',
       email: 'agustina_braun@wintheiser.info',
       phone: '449.897.7415',
+      Height: 150,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -18,6 +19,7 @@ module.exports = {
       birthday: '1997-01-29',
       email: 'heber.upton@bechtelarwisozk.biz',
       phone: '(697)436-2633',
+      Height: 175,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -27,6 +29,7 @@ module.exports = {
       birthday: '1997-10-30',
       email: 'nora@treutel.name',
       phone: '1-351-672-6358x02502',
+      Height: 128,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -36,6 +39,7 @@ module.exports = {
       birthday: '1995-06-27',
       email: 'cordell@sanfordkuhlman.org',
       phone: '(600)142-5639x9380',
+      Height: 190,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -45,6 +49,7 @@ module.exports = {
       birthday: '1994-04-04',
       email: 'erling@davis.name',
       phone: '554.170.3265',
+      Height: 165,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -54,6 +59,7 @@ module.exports = {
       birthday: '1994-10-13',
       email: 'mike_harvey@nikolaus.com',
       phone: '(543)511-2123',
+      Height: 161,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -63,6 +69,7 @@ module.exports = {
       birthday: '1994-11-19',
       email: 'rubye_olson@collins.biz',
       phone: '1-410-486-1411x5058',
+      Height: 145,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -72,6 +79,7 @@ module.exports = {
       birthday: '1995-05-28',
       email: 'wanda_okon@hane.name',
       phone: '572.978.5828x07860',
+      Height: 121,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -81,6 +89,7 @@ module.exports = {
       birthday: '1996-07-31',
       email: 'fay-runolfon.biz',
       phone: '1-828-134-7828x66958',
+      Height: 180,
       createdAt: new Date(),
       updatedAt: new Date()
     },{
@@ -90,6 +99,7 @@ module.exports = {
       birthday: '1995-09-23',
       email: 'doug@robers.biz',
       phone: '144.038.7351x24117',
+      Height: 160,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

@@ -7,13 +7,47 @@ module.exports = (sequelize, DataTypes) => {
     birthday: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
-      validate: { isEmail: true, isUnique: true
+      validate: { 
+        isEmail: {
+          args: true,
+          msg: 'Email yang dimasukan tidak unik !!'
+        }, 
+        isUnique:function(value,next){
+          Student.find(
+            {where:{email: value} 
+          })
+          .then(value =>{
+            if(value !== null){
+              return next('Email sudah terdaftar !!')
+            }
+            else{
+              next();
+            }
+          })
+        }
       }
     },
-    phone: DataTypes.STRING,
+    phone:{
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [10,13],
+          msg: 'Jumlah digit nomor telefon harus antara 10-13 digit !!'
+        },
+        not:{
+          args: ["[a-z]",'i'],
+          msg: 'nomor telefon tidak boleh ada huruf !!'
+        }
+      }
+    },
     Hight: {
       type: DataTypes.INTEGER,
-      validate: { min: 150 }
+      validate: { 
+        min: {
+          args: 150,
+          msg: 'Tinggi Badan Minimal 150 !!'
+        } 
+      }
     }
   }, {
     timestamps: false

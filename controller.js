@@ -55,32 +55,11 @@ class Controller{
     static addData(firstName, lastName, gender, birthday, email, phone, Hight){
         Students.create({firstName: firstName, lastName: lastName, gender: gender, birthday: birthday, email: email, phone: phone, Hight: Hight})
         .then(newStudent => {
-            console.log(newStudent)
-        })
-        .catch(err => {
-            console.log('Ada Data Yang Tidak Unique')
-        })
-    }
-
-    static addHight(param,id){
-        Students.update({Hight: param},{raw: true, where:{id: id}})
-        .then(data =>{
-            console.log('Data Berhasil Dimasukan')
-        })
-        .catch(err => {
-           console.log('Tinggi Minimal 150cm')
-        })
-    }
-
-    static updateEmail(param, id){
-        Students.update({email: param},{raw: true, where:{id: id}})
-        .then(data => {
-            console.log('Data Berhasil Dimasukan')
-        })
-        .catch(err => {
-           console.log('Alamat Email Salah !!')
+            console.log('Data berhasil dimasukan!!')
+            console.log('=========================')
+            // console.log(newStudent)
         })
     }
 }
 
-Controller.addData('anugrah','rezki','male','1994-10-25','z@a.com','628117892510',180)
+Controller.addData('anugrah','rezki','male','1994-10-25','xx@a.com','6281117892510',180)

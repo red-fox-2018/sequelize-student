@@ -8,15 +8,46 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       validate: {
-        isEmail: true
+        isEmail: {
+          args: true,
+          msg: 'Check your email again'
+        },
+        isUnique: function(value, next) {
+          Student.find({
+            where: {
+              email: value
+            }
+          })
+          .then(function(err, emailStudent) {
+            if(err) return next(err)
+            if(emailStudent) return next('Email already have been used')
+            next()
+          })
+        }
       }
     },
-    phone: DataTypes.STRING,
-    height: {
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        not: {
+          args: ["[a-z]",'i'],
+          msg: 'Phone not allow letters'
+        },
+        isNumeric: {
+          args: true
+        },
+        len: {
+          args: [10, 13],
+          msg: 'Phone length must be 10 - 13'
+        }
+      }
+    },
+    Height: {
       type: DataTypes.INTEGER,
       validate: {
-        max: {
-          args: > 150
+        min: {
+          args: 150,
+          msg: 'Your height have to be 150 cm or greater'
         }
       }
     }
@@ -50,6 +81,53 @@ module.exports = (sequelize, DataTypes) => {
         students[i].first_name + ' ' + students[i].last_name
       }
       cb(students)
+    })
+  }
+
+  Student.addNew = function(objStudent, cb) {
+    Student.create({
+      first_name: objStudent.first_name,
+      last_name: objStudent.last_name,
+      gender: objStudent.gender,
+      email: objStudent.email,
+      phone: objStudent.phone,
+      height: objStudent.height
+    })
+    .then(newStudent => {
+      cb('added a new student')
+    })
+    .catch(err => {
+      cb(err.message)
+    })
+  }
+
+  Student.updateData = function(inputId, column, value, cb) {
+    Student.update({
+      [column]: value
+    }, {
+      where: {
+        id: inputId
+      }
+    })
+    .then(updated => {
+      cb(updated)
+    })
+    .catch(err => {
+      cb(err.message)
+    })
+  }
+
+  Student.deleteData = function(inputId, cb) {
+    Student.update({
+      where: {
+        id: inputId
+      }
+    })
+    .then(deleted => {
+      cb(deleted)
+    })
+    .catch(err => {
+      cb(err.message)
     })
   }
 

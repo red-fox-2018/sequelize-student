@@ -12,6 +12,17 @@ module.exports = (sequelize, DataTypes) => {
         isEmail:{
           args:true,
           msg:'email should includes @ and .'
+        },
+        isUnique: function (email,cb) {
+          Student.findOne({where:{email:email}})
+          .then(function(notAvailabel){
+            if(notAvailabel){
+              cb(true)
+            }
+            else{
+              cb(false)
+            }
+          })
         }
       }
     },

@@ -21,8 +21,8 @@ Models.Student.create(
         last_name:'milan',
         gender:'male',
         birthday:'1998-10-24',
-        email: 'erlingdavis.name',
-        phone: '1232',
+        email: 'erliaang@davis.name',
+        phone: '11121131222',
         createdAt:new Date(),
         updatedAt:new Date(),
         Height: 151
@@ -32,5 +32,5 @@ Models.Student.create(
     console.log(student)
 })
 .catch(err=>{
-    console.log(err)
+    console.log(err.message)
 })
